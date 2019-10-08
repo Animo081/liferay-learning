@@ -27,9 +27,6 @@ public class MyWrapperOverride extends UserLocalServiceWrapper {
 
 	private static final String ADMIN_GOOGLE_EMAIL = "xakerok24@gmail.com";
 
-	@Reference()
-	CustomMailService mailService;
-
 	public MyWrapperOverride() {
 		super(null);
 	}
