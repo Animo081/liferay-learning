@@ -1,0 +1,10 @@
+Bundle-Name: news-builder-api
+Bundle-SymbolicName: news.builder.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	news.builder.exception,\
+	news.builder.model,\
+	news.builder.service,\
+	news.builder.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../news-builder-service/service.xml
