@@ -82,9 +82,9 @@ public class NewsModelImpl extends BaseModelImpl<News> implements NewsModel {
 		{"groupId", Types.BIGINT}, {"companyId", Types.BIGINT},
 		{"userId", Types.BIGINT}, {"userName", Types.VARCHAR},
 		{"createDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP},
-		{"title", Types.VARCHAR}, {"subtitle", Types.VARCHAR},
-		{"urlTitle", Types.VARCHAR}, {"description", Types.VARCHAR},
-		{"content", Types.VARCHAR}, {"displayDate", Types.TIMESTAMP}
+		{"title", Types.VARCHAR}, {"urlTitle", Types.VARCHAR},
+		{"description", Types.VARCHAR}, {"content", Types.VARCHAR},
+		{"displayDate", Types.TIMESTAMP}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -100,7 +100,6 @@ public class NewsModelImpl extends BaseModelImpl<News> implements NewsModel {
 		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("title", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("subtitle", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("urlTitle", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("description", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("content", Types.VARCHAR);
@@ -108,7 +107,7 @@ public class NewsModelImpl extends BaseModelImpl<News> implements NewsModel {
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table News_News (uuid_ VARCHAR(75) null,newsId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,title VARCHAR(75) null,subtitle VARCHAR(75) null,urlTitle VARCHAR(75) null,description VARCHAR(75) null,content VARCHAR(75) null,displayDate DATE null)";
+		"create table News_News (uuid_ VARCHAR(75) null,newsId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,title VARCHAR(75) null,urlTitle VARCHAR(75) null,description VARCHAR(75) null,content VARCHAR(75) null,displayDate DATE null)";
 
 	public static final String TABLE_SQL_DROP = "drop table News_News";
 
@@ -171,7 +170,6 @@ public class NewsModelImpl extends BaseModelImpl<News> implements NewsModel {
 		model.setCreateDate(soapModel.getCreateDate());
 		model.setModifiedDate(soapModel.getModifiedDate());
 		model.setTitle(soapModel.getTitle());
-		model.setSubtitle(soapModel.getSubtitle());
 		model.setUrlTitle(soapModel.getUrlTitle());
 		model.setDescription(soapModel.getDescription());
 		model.setContent(soapModel.getContent());
@@ -504,26 +502,6 @@ public class NewsModelImpl extends BaseModelImpl<News> implements NewsModel {
 
 			});
 		attributeGetterFunctions.put(
-			"subtitle",
-			new Function<News, Object>() {
-
-				@Override
-				public Object apply(News news) {
-					return news.getSubtitle();
-				}
-
-			});
-		attributeSetterBiConsumers.put(
-			"subtitle",
-			new BiConsumer<News, Object>() {
-
-				@Override
-				public void accept(News news, Object subtitle) {
-					news.setSubtitle((String)subtitle);
-				}
-
-			});
-		attributeGetterFunctions.put(
 			"urlTitle",
 			new Function<News, Object>() {
 
@@ -784,22 +762,6 @@ public class NewsModelImpl extends BaseModelImpl<News> implements NewsModel {
 
 	@JSON
 	@Override
-	public String getSubtitle() {
-		if (_subtitle == null) {
-			return "";
-		}
-		else {
-			return _subtitle;
-		}
-	}
-
-	@Override
-	public void setSubtitle(String subtitle) {
-		_subtitle = subtitle;
-	}
-
-	@JSON
-	@Override
 	public String getUrlTitle() {
 		if (_urlTitle == null) {
 			return "";
@@ -905,7 +867,6 @@ public class NewsModelImpl extends BaseModelImpl<News> implements NewsModel {
 		newsImpl.setCreateDate(getCreateDate());
 		newsImpl.setModifiedDate(getModifiedDate());
 		newsImpl.setTitle(getTitle());
-		newsImpl.setSubtitle(getSubtitle());
 		newsImpl.setUrlTitle(getUrlTitle());
 		newsImpl.setDescription(getDescription());
 		newsImpl.setContent(getContent());
@@ -1049,14 +1010,6 @@ public class NewsModelImpl extends BaseModelImpl<News> implements NewsModel {
 			newsCacheModel.title = null;
 		}
 
-		newsCacheModel.subtitle = getSubtitle();
-
-		String subtitle = newsCacheModel.subtitle;
-
-		if ((subtitle != null) && (subtitle.length() == 0)) {
-			newsCacheModel.subtitle = null;
-		}
-
 		newsCacheModel.urlTitle = getUrlTitle();
 
 		String urlTitle = newsCacheModel.urlTitle;
@@ -1172,7 +1125,6 @@ public class NewsModelImpl extends BaseModelImpl<News> implements NewsModel {
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
 	private String _title;
-	private String _subtitle;
 	private String _urlTitle;
 	private String _description;
 	private String _content;

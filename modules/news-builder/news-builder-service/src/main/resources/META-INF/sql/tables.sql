@@ -8,7 +8,6 @@ create table News_News (
 	createDate DATE null,
 	modifiedDate DATE null,
 	title VARCHAR(75) null,
-	subtitle VARCHAR(75) null,
 	urlTitle VARCHAR(75) null,
 	description VARCHAR(75) null,
 	content VARCHAR(75) null,

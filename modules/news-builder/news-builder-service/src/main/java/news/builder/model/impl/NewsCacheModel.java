@@ -64,7 +64,7 @@ public class NewsCacheModel implements CacheModel<News>, Externalizable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(29);
+		StringBundler sb = new StringBundler(27);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -84,8 +84,6 @@ public class NewsCacheModel implements CacheModel<News>, Externalizable {
 		sb.append(modifiedDate);
 		sb.append(", title=");
 		sb.append(title);
-		sb.append(", subtitle=");
-		sb.append(subtitle);
 		sb.append(", urlTitle=");
 		sb.append(urlTitle);
 		sb.append(", description=");
@@ -143,13 +141,6 @@ public class NewsCacheModel implements CacheModel<News>, Externalizable {
 			newsImpl.setTitle(title);
 		}
 
-		if (subtitle == null) {
-			newsImpl.setSubtitle("");
-		}
-		else {
-			newsImpl.setSubtitle(subtitle);
-		}
-
 		if (urlTitle == null) {
 			newsImpl.setUrlTitle("");
 		}
@@ -198,7 +189,6 @@ public class NewsCacheModel implements CacheModel<News>, Externalizable {
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 		title = objectInput.readUTF();
-		subtitle = objectInput.readUTF();
 		urlTitle = objectInput.readUTF();
 		description = objectInput.readUTF();
 		content = objectInput.readUTF();
@@ -239,13 +229,6 @@ public class NewsCacheModel implements CacheModel<News>, Externalizable {
 			objectOutput.writeUTF(title);
 		}
 
-		if (subtitle == null) {
-			objectOutput.writeUTF("");
-		}
-		else {
-			objectOutput.writeUTF(subtitle);
-		}
-
 		if (urlTitle == null) {
 			objectOutput.writeUTF("");
 		}
@@ -279,7 +262,6 @@ public class NewsCacheModel implements CacheModel<News>, Externalizable {
 	public long createDate;
 	public long modifiedDate;
 	public String title;
-	public String subtitle;
 	public String urlTitle;
 	public String description;
 	public String content;

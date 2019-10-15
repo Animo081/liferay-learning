@@ -67,7 +67,6 @@ public class NewsWrapper implements News, ModelWrapper<News> {
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("title", getTitle());
-		attributes.put("subtitle", getSubtitle());
 		attributes.put("urlTitle", getUrlTitle());
 		attributes.put("description", getDescription());
 		attributes.put("content", getContent());
@@ -130,12 +129,6 @@ public class NewsWrapper implements News, ModelWrapper<News> {
 
 		if (title != null) {
 			setTitle(title);
-		}
-
-		String subtitle = (String)attributes.get("subtitle");
-
-		if (subtitle != null) {
-			setSubtitle(subtitle);
 		}
 
 		String urlTitle = (String)attributes.get("urlTitle");
@@ -271,16 +264,6 @@ public class NewsWrapper implements News, ModelWrapper<News> {
 	@Override
 	public Serializable getPrimaryKeyObj() {
 		return _news.getPrimaryKeyObj();
-	}
-
-	/**
-	 * Returns the subtitle of this news.
-	 *
-	 * @return the subtitle of this news
-	 */
-	@Override
-	public String getSubtitle() {
-		return _news.getSubtitle();
 	}
 
 	/**
@@ -488,16 +471,6 @@ public class NewsWrapper implements News, ModelWrapper<News> {
 	@Override
 	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
 		_news.setPrimaryKeyObj(primaryKeyObj);
-	}
-
-	/**
-	 * Sets the subtitle of this news.
-	 *
-	 * @param subtitle the subtitle of this news
-	 */
-	@Override
-	public void setSubtitle(String subtitle) {
-		_news.setSubtitle(subtitle);
 	}
 
 	/**

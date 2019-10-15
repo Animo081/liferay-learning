@@ -24,7 +24,6 @@
 		<!-- Other fields -->
 
 		<column name="title" type="String" uad-nonanonymizable="true" />
-		<column name="subtitle" type="String" uad-nonanonymizable="true" />
 		<column name="urlTitle" type="String" uad-nonanonymizable="true" />
 		<column name="description" type="String" uad-nonanonymizable="true" />
 		<column name="content" type="String" uad-nonanonymizable="true" />

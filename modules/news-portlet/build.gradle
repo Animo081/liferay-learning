@@ -12,4 +12,7 @@ dependencies {
 	compileOnly group: 'com.liferay', name: 'com.liferay.alloy.mvc', version: '3.0.9'
 	compileOnly group: 'com.liferay', name: 'com.liferay.users.admin.web', version: '3.0.50'
 	compileOnly group: 'com.liferay.commerce', name: 'com.liferay.commerce.warehouse.web', version: '1.0.12'
+
+	compileOnly project(":modules:news-builder:news-builder-api")
+
 }

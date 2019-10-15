@@ -224,21 +224,6 @@ public interface NewsModel
 	public void setTitle(String title);
 
 	/**
-	 * Returns the subtitle of this news.
-	 *
-	 * @return the subtitle of this news
-	 */
-	@AutoEscape
-	public String getSubtitle();
-
-	/**
-	 * Sets the subtitle of this news.
-	 *
-	 * @param subtitle the subtitle of this news
-	 */
-	public void setSubtitle(String subtitle);
-
-	/**
 	 * Returns the url title of this news.
 	 *
 	 * @return the url title of this news
